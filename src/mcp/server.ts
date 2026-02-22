@@ -20,7 +20,7 @@ import { handleToolCall } from './handlers.js';
 export function createMcpServer(): Server {
   const server = new Server(
     {
-      name: 'google-drive-mcp',
+      name: 'google-drive-mcp-lib',
       version: '1.0.0',
     },
     {

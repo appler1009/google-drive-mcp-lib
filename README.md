@@ -1,10 +1,10 @@
-# google-drive-mcp
+# google-drive-mcp-lib
 
 A TypeScript npm package providing Google Drive access via the official SDK. This package offers dual mode functionality: a standalone MCP stdio server and a library for easy integration into Node.js/TypeScript projects with typed exported functions.
 
 ## Summary
 
-`google-drive-mcp` enables seamless integration with Google Drive through two modes:
+`google-drive-mcp-lib` enables seamless integration with Google Drive through two modes:
 
 1. **Library Mode**: Import typed functions directly into your Node.js/TypeScript project
 2. **MCP Server Mode**: Run as a Model Context Protocol (MCP) stdio server for AI assistants
@@ -29,7 +29,7 @@ The package handles token resolution with a clear priority system and does not a
 ## Installation
 
 ```bash
-npm install google-drive-mcp
+npm install google-drive-mcp-lib
 ```
 
 ## Token Handling
@@ -82,7 +82,7 @@ import {
   searchFiles,
   deleteFile,
   resolveTokens,
-} from 'google-drive-mcp';
+} from 'google-drive-mcp-lib';
 
 // Option 1: Create a client and use it directly
 const drive = createDriveClient({ tokens: myTokens });
@@ -180,13 +180,13 @@ Run as an MCP stdio server:
 
 ```bash
 # Using npx
-npx google-drive-mcp
+npx google-drive-mcp-lib
 
 # Or with token file
-GOOGLE_DRIVE_TOKEN_FILE=/path/to/token.json npx google-drive-mcp
+GOOGLE_DRIVE_TOKEN_FILE=/path/to/token.json npx google-drive-mcp-lib
 
 # Or with env var
-GOOGLE_DRIVE_TOKEN='{"access_token":"..."}' npx google-drive-mcp
+GOOGLE_DRIVE_TOKEN='{"access_token":"..."}' npx google-drive-mcp-lib
 ```
 
 #### Available MCP Tools

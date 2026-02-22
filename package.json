@@ -1,5 +1,5 @@
 {
-  "name": "google-drive-mcp",
+  "name": "google-drive-mcp-lib",
   "version": "1.0.0",
   "description": "Google Drive MCP server and library for Node.js/TypeScript - dual mode package providing typed functions and MCP stdio server",
   "author": "appler1009",
@@ -8,7 +8,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
-    "google-drive-mcp": "dist/cli.js"
+    "google-drive-mcp-lib": "dist/cli.js"
   },
   "exports": {
     ".": {
@@ -52,12 +52,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/appler1009/google-drive-mcp"
+    "url": "https://github.com/appler1009/google-drive-mcp-lib"
   },
   "bugs": {
-    "url": "https://github.com/appler1009/google-drive-mcp/issues"
+    "url": "https://github.com/appler1009/google-drive-mcp-lib/issues"
   },
-  "homepage": "https://github.com/appler1009/google-drive-mcp#readme",
+  "homepage": "https://github.com/appler1009/google-drive-mcp-lib#readme",
   "engines": {
     "node": ">=18.0.0"
   }
