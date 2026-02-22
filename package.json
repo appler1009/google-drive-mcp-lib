@@ -1,6 +1,6 @@
 {
   "name": "google-drive-mcp-lib",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Google Drive MCP server and library for Node.js/TypeScript - dual mode package providing typed functions and MCP stdio server",
   "author": "appler1009",
   "license": "MIT",
