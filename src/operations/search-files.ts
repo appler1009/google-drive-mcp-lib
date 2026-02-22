@@ -20,6 +20,34 @@ const DEFAULT_FIELDS = [
 ];
 
 /**
+ * Converts a simple search query into Google Drive API query syntax
+ *
+ * @param query - Simple search string (e.g., "quantum computing")
+ * @returns Formatted Google Drive query (e.g., "fullText contains 'quantum' and fullText contains 'computing'")
+ */
+function formatSearchQuery(query: string): string {
+  // If query already contains Google Drive query syntax, return as-is
+  if (query.includes(' contains ') || query.includes('=') || query.includes('>') || query.includes('<')) {
+    return query;
+  }
+
+  // Split by spaces and create fullText contains for each term
+  const terms = query.trim().split(/\s+/).filter(term => term.length > 0);
+
+  if (terms.length === 0) {
+    return query;
+  }
+
+  // Escape single quotes and build the query
+  const formattedTerms = terms.map(term => {
+    const escaped = term.replace(/'/g, "\\'");
+    return `fullText contains '${escaped}'`;
+  });
+
+  return formattedTerms.join(' and ');
+}
+
+/**
  * Search for files in Google Drive
  * 
  * @param options - Search options including query string
@@ -43,12 +71,15 @@ export async function searchFiles(
 
   const { query, pageSize = 10, pageToken, orderBy, fields = DEFAULT_FIELDS } = options;
 
+  // Format the query into proper Google Drive API syntax
+  const formattedQuery = formatSearchQuery(query);
+
   const response = await drive.files.list({
-    q: query,
+    q: formattedQuery,
     pageSize,
     pageToken,
     orderBy,
-    fields: `nextPageToken, files(${fields.join(',')})`,
+    fields: `nextPageToken,files(${fields.join(',')})`,
   });
 
   const files = (response.data.files ?? [])
